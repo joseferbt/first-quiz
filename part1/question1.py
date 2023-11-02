@@ -1,10 +1,10 @@
 ################################################################################
 #     ____                          __     _                          ___
 #    / __ \  __  __  ___    _____  / /_   (_)  ____    ____          <  /
-#   / / / / / / / / / _ \  / ___/ / __/  / /  / __ \  / __ \         / / 
-#  / /_/ / / /_/ / /  __/ (__  ) / /_   / /  / /_/ / / / / /        / /  
-#  \___\_\ \__,_/  \___/ /____/  \__/  /_/   \____/ /_/ /_/        /_/   
-#                                                                        
+#   / / / / / / / / / _ \  / ___/ / __/  / /  / __ \  / __ \         / /
+#  / /_/ / / /_/ / /  __/ (__  ) / /_   / /  / /_/ / / / / /        / /
+#  \___\_\ \__,_/  \___/ /____/  \__/  /_/   \____/ /_/ /_/        /_/
+#
 #  Question 1
 ################################################################################
 #
@@ -14,22 +14,28 @@
 # Read the test suite to know the values that these functions should return.
 
 def get_city_temperature(city):
-   if city == "Quito":
-      return 22
-   if city == "Sao Paulo":
-      return 17
-   if city == "San Francisco":
-      return 16
+    match city:
+        case "Quito":
+            return 22
+        case "Sao Paulo":
+            return 17
+        case "San Francisco":
+            return 16
+        case "New York":
+            return 14
+    return 0
+
 
 def get_city_weather(city):
+    sky_condition = None
+    match city:
+        case "Sao Paulo":
+            sky_condition = "cloudy"
+        case "New York":
+            sky_condition = "rainy"
+        case "Quito":
+            sky_condition = "sunny"
 
-  sky_condition = None
+    temperature = get_city_temperature(city)
 
-  if city == "Sao Paulo":
-     sky_condition = "cloudy"
-  elif city == "New York":
-     sky_condition = "rainy"
-
-  temperature = get_city_temperature(city)
-
-  return str(temperature) + " degrees and " + sky_condition
+    return str(temperature) + " degrees and " + sky_condition
