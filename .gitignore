@@ -7,6 +7,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+part1/quiz_pets
 .idea
 .Python
 build/
